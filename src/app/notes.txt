@@ -1,0 +1,18 @@
+<!-- <button>Save</button>
+
+<button class="btn btn-success">Submit</button>
+<button class="btn btn-primary">Submit 2</button>
+<button class="btn btn-danger">Cancel</button>
+
+<i class="fa fa-edit"></i>
+<i class="fa fa-trash"></i> -->
+
+
+
+
+ //   this._toastr.success("Success", "User Master");
+    //   this._toastr.info("Info", "User Master");
+    //   this._toastr.warning("Warning", "User Master");
+    //   this._toastr.error("Error", "User Master");
+
+    // Swal.fire('Hello World')

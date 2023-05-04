@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
+@import '../node_modules/ngx-toastr/toastr.css';
+
+.card-header-color {
+    background-color: rgb(30, 112, 112);
+    color: white;
+}
+
+.card-header-list-color {
+    background-color: rgb(94, 51, 248);
+    color: white;
+}

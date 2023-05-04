@@ -1,0 +1,102 @@
+<div class="card">
+    <h5 class="card-header card-header-color">User Registeration</h5>
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="row mb-3">
+                <div class="form-group col">
+                    <label>Title</label>
+                    <select class="form-control" formControlName="title"
+                        [ngClass]="{'is-invalid': submitted && f['title'].errors}">
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Ms">Ms</option>
+                    </select>
+                    <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
+                        <div *ngIf="f['title'].errors['required']">Title is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" formControlName="firstName"
+                        [ngClass]="{'is-invalid': submitted && f['firstName'].errors}">
+                    <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+                        <div *ngIf="f['firstName'].errors['required']">First Name is required</div>
+                        <div *ngIf="f['firstName'].errors['minlength']">First Name should be atleast 3 char long</div>
+                        <div *ngIf="f['firstName'].errors['maxlength']">First Name should not be more than 18 char long
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" formControlName="lastName"
+                        [ngClass]="{'is-invalid': submitted && f['lastName'].errors}">
+                    <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
+                        <div *ngIf="f['lastName'].errors['required']">Last Name is required</div>
+                        <div *ngIf="f['lastName'].errors['minlength']">Last Name should be atleast 3 char long</div>
+                        <div *ngIf="f['lastName'].errors['maxlength']">Last Name should not be more than 18 char long
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="form-group col-5">
+                    <label>Date of Birth</label>
+                    <input type="date" class="form-control" formControlName="dob"
+                        [ngClass]="{'is-invalid': submitted && f['dob'].errors}">
+                    <div *ngIf="submitted && f['dob'].errors" class="invalid-feedback">
+                        <div *ngIf="f['dob'].errors['required']">Date of Birth is required</div>
+                        <div *ngIf="f['dob'].errors['pattern']">Date of Birth must be a valid date in the format
+                            YYYY-MM-dd</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-5">
+                <label>Email</label>
+                <input type="email" class="form-control" formControlName="email"
+                    [ngClass]="{'is-invalid': submitted && f['email'].errors}">
+                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                    <div *ngIf="f['email'].errors['required']">Email is required</div>
+                    <div *ngIf="f['email'].errors['email']">Please enter a valid email address</div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="form-group col-5">
+                    <label>Password</label>
+                    <input type="password" class="form-control" formControlName="password"
+                        [ngClass]="{'is-invalid': submitted && f['password'].errors}">
+                    <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                        <div *ngIf="f['password'].errors['required']">Password is required</div>
+                        <div *ngIf="f['password'].errors['minLength']">Password must be atleast 6 char long</div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <label>Confirm Password</label>
+                    <input type="password" class="form-control" formControlName="confirmPassword"
+                        [ngClass]="{'is-invalid': submitted && f['confirmPassword'].errors}">
+                    <div *ngIf="submitted && f['confirmPassword'].errors" class="invalid-feedback">
+                        <div *ngIf="f['confirmPassword'].errors['required']">Confirm Password is required</div>
+                        <div *ngIf="f['confirmPassword'].errors['MustMatch']">Confirm Password must match</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="form-group form-check">
+                    <label for="acceptTerms" class="form-check-label">Accept Terms & Condition</label>
+                    <input type="checkbox" class="form-check-input" id="acceptTerms" formControlName="acceptTerms"
+                        [ngClass]="{'is-invalid': submitted && f['acceptTerms'].errors}">
+                    <div *ngIf="submitted && f['acceptTerms'].errors" class="invalid-feedback">
+                        <div *ngIf="f['acceptTerms'].errors['required']">Accept Terms & Condition is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-success me-1">{{buttonText}}</button>
+                    <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
